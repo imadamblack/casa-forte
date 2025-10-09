@@ -2,7 +2,7 @@ import { info } from "../../../info";
 
 export default function Footer() {
   return (
-    <footer className="relative mb-0  border-t">
+    <footer className="relative mb-0  border-t z-[99999]">
       <div className="bg-black py-6">
         <div className="container text-white p-8">
           <p className="text-center ft-0 m-0">

@@ -69,7 +69,21 @@ export default function Index() {
       </section>
 
       {catalogo != null &&
-        <section id="catalogo" className="border-t">
+        <section id="catalogo" style={{
+          borderTop: '8px solid transparent',
+          borderLeft: '0 solid transparent',
+          borderRight: '0 solid transparent',
+          borderImage: `linear-gradient(
+          to right,
+          #b8860b 0%,   /* dorado oscuro */
+          #ffd700 20%,  /* dorado brillante */
+          #fff8dc 40%,  /* casi blanco (reflejo) */
+          #ffd700 60%,  /* dorado brillante */
+          #b8860b 80%,  /* dorado oscuro */
+          #ffd700 100%  /* cierra brillante */
+        ) 1`,
+          borderImageSlice: 1,
+        }}>
           <div className="reading-container my-20">
             <h2 className="text-center font-semibold" dangerouslySetInnerHTML={{__html: catalogo.banner.title}}/>
             <p className="ft-2" dangerouslySetInnerHTML={{__html: hero.content.paragraph}}/>
@@ -231,7 +245,7 @@ export default function Index() {
         <div className="container my-40">
           <div className="grid md:grid-cols-3 gap-16 items-stretch">
             {testimonios.content.items.map((i, idx) =>
-              <div className="relative flex flex-col p-12 border border-yellow-500 shadow-md">
+              <div className="relative flex flex-col p-12 pt-32 border border-yellow-500 shadow-md">
                 <p className="!text-[16rem] absolute -top-28 -left-2 material-icons">format_quote</p>
                 <p className="ft-2 font-medium flex-grow my-20">{i.description}</p>
                 <p className="ft-1 text-right">
@@ -298,24 +312,10 @@ export default function Index() {
         </div>
       </section>
 
-      <div
-        className='sticky inset-x-0 bottom-4 bg-transparent overflow-hidden my-20 z-[9999]'>
-        <div className='mx-auto flex justify-center'>
-            <a
-              href="#contact"
-              onClick={() => goToContact('wa-btn')}
-              className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg'
-            >
-              <span className="filter invert mr-4"><Image src="/whatsapp.svg" width={24} height={24}/></span>
-              Mándanos un WhatsApp
-            </a>
-
-        </div>
-      </div>
-
       {/* CONTACT */}
       <section id="contact"
-               className="border-t-2 border-brand-1 bg-[url('/landing/bg.jpg')] bg-center bg-cover py-20">
+               className="border-t-2 border-brand-1 bg-white
+                bg-center bg-cover py-20 z-[99999]">
         <div className="container">
           <div className="w-full md:w-1/2 mx-auto">
             <h2 className="!font-bold text-neutral-900">
@@ -332,7 +332,20 @@ export default function Index() {
         </div>
       </section>
 
+      <div
+        className='fixed inset-x-0 bottom-4 px-8 z-[9999] isolate'>
+        <div className='flex justify-center lg:justify-end'>
+          <a
+            href="#contact"
+            onClick={() => goToContact('wa-btn')}
+            className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg'
+          >
+            <span className="filter invert mr-4"><Image src="/whatsapp.svg" width={24} height={24}/></span>
+            Mándanos un WhatsApp
+          </a>
 
+        </div>
+      </div>
     </>
   );
 }
