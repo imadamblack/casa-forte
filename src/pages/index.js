@@ -53,7 +53,7 @@ export default function Index() {
 
         <div className="container min-h-[40rem] text-white w-full text-left z-20 py-20">
           <h1
-            className="md:w-2/3 relative ft-11 invert">
+            className="md:w-2/3 relative ft-9 invert">
             {hero.banner.title}
           </h1>
           <p className="ft-3 mt-16 md:text-white invert" dangerouslySetInnerHTML={{__html: hero.banner.description}}/>
@@ -338,7 +338,7 @@ export default function Index() {
           <a
             href="#contact"
             onClick={() => goToContact('wa-btn')}
-            className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg'
+            className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg !tracking-normal'
           >
             <span className="filter invert mr-4"><Image src="/whatsapp.svg" width={24} height={24}/></span>
             Mándanos un WhatsApp
