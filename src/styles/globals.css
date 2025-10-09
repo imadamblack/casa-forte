@@ -1,11 +1,11 @@
 @charset "UTF-8";
-@import url("https://use.typekit.net/bbm7agp.css");
+@import url("https://use.typekit.net/hdr5gfb.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 html {
   font-size: 62.5%;
-  font-family: "optima-lt-pro", sans-serif;
+  font-family: "neue-haas-grotesk-text", sans-serif;
 }
 
 @keyframes ft-11 {
@@ -252,11 +252,11 @@ html {
   font-display: swap;
 }
 label {
-  font-family: "Inter", sans-serif;
+  font-family: "neue-haas-grotesk-text", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "marlide-display-variable", sans-serif;
+  font-family: "arnika-variable", sans-serif;
   letter-spacing: normal; /* Equivalente a tracking-normal */
   margin-block-start: 0;
 }
@@ -270,7 +270,7 @@ h4, h5, h6 {
 }
 
 p, li {
-  font-family: "optima-lt-pro", sans-serif;
+  font-family: "neue-haas-grotesk-text", sans-serif;
   margin-block-start: 0;
 }
 
@@ -281,7 +281,7 @@ a {
 }
 
 .sans {
-  font-family: "Inter", sans-serif;
+  font-family: "neue-haas-grotesk-text", sans-serif;
 }
 
 .serif {

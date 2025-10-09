@@ -1,4 +1,4 @@
-@import url("https://use.typekit.net/bbm7agp.css");
+@import url("https://use.typekit.net/hdr5gfb.css");
 
 $titleLead: 1.1;
 $subtitleLead: 1.2;
@@ -6,7 +6,7 @@ $baseLead: 1.5;
 
 html {
   font-size: 62.5%;
-  font-family: "optima-lt-pro", sans-serif;
+  font-family: "neue-haas-grotesk-text", sans-serif;
 }
 
 $fluid_steps: (
@@ -57,10 +57,10 @@ h5 { @extend .ft-2; }
 h6 { @extend .ft-1; }
 p { @extend .ft-0; }
 li { @extend .ft-0; }
-label { @extend .ft-0; font-family: "Inter", sans-serif }
+label { @extend .ft-0; font-family: "neue-haas-grotesk-text", sans-serif; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "marlide-display-variable", sans-serif;
+  font-family: "arnika-variable", sans-serif;
   letter-spacing: normal; /* Equivalente a tracking-normal */
   margin-block-start: 0;
 }
@@ -74,7 +74,7 @@ h4, h5, h6 {
 }
 
 p, li {
-  font-family: "optima-lt-pro", sans-serif;
+  font-family: "neue-haas-grotesk-text", sans-serif;
   margin-block-start: 0;
 }
 
@@ -85,7 +85,7 @@ a {
 }
 
 .sans {
-  font-family: "Inter", sans-serif;
+  font-family: "neue-haas-grotesk-text", sans-serif;
 }
 .serif {
   font-family: "Fira Sans", sans-serif;
