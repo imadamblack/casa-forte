@@ -41,7 +41,15 @@ export default function OptInForm({lastClick = ''}) {
           {email: data.email, phone: data.phone, externalID: id},
         );
         setCookie('lead', {...data, id});
-        router.push(`/survey?id=${id}`);
+
+        const forwardLink = document.createElement('a');
+        forwardLink.href = `https://wa.me/+${info.whatsapp.value}`;
+        forwardLink.target = '_blank';
+        forwardLink.click();
+
+        router.push('/thankyou');
+
+        // router.push(`/survey?id=${id}`);
       })
       .catch(() => {
         fbEvent(
@@ -49,6 +57,14 @@ export default function OptInForm({lastClick = ''}) {
           {email: data.email, phone: data.phone, externalID: ''},
         );
         setCookie('lead', {...data});
+
+        const forwardLink = document.createElement('a');
+        forwardLink.href = `https://wa.me/+${info.whatsapp.value}`;
+        forwardLink.target = '_blank';
+        forwardLink.click();
+
+        router.push('/thankyou');
+
         router.push(`/thankyou`);
       })
   };

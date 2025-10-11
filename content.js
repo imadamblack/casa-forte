@@ -113,7 +113,7 @@ export const content = {
       items: [
         {
           q: '¿Qué tipo de piezas aceptan?',
-          a: 'Relojes de alta gama, joyas de oro/plata, centenarios y artículos de orfebrería.',
+          a: 'Relojes de alta gama, joyas de oro/plata, centenarios y artículos de orfebrería de plata .925.',
         },
         {
           q: '¿Debo tener un certificado?',
