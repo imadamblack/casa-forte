@@ -110,7 +110,7 @@ const setFormSteps = ({fullName, phone}) => ([
   },
   {
     type: 'radio',
-    name: 'interes',
+    name: 'motivo',
     title: '¿Por qué te interesa vender estas piezas?',
     inputOptions: {required: 'Selecciona una por favor'},
     options: [
