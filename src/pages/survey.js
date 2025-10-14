@@ -3,10 +3,11 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { setCookie, getCookie } from 'cookies-next';
-import { info } from '../../info';
 import StepRenderer from '../components/form/stepRenderer';
 import fbEvent from '../services/fbEvents';
 import Image from 'next/image';
+import { info } from '../../info';
+import { content } from '../../content'
 import { motion, AnimatePresence } from 'framer-motion';
 
 import logo from '../../public/logo.png';
@@ -20,7 +21,7 @@ const Intro = () => <motion.div
   animate={{opacity: 1}}
   exit={{opacity: 0}}
   transition={{duration: 0.5}}
-  className="bg-[url('/survey/00.jpg')] bg-center bg-cover relative flex-grow flex flex-col items-center justify-end px-4 py-12"
+  className="bg-[url('/landing/hero.jpg')] bg-center bg-cover relative flex-grow flex flex-col items-center justify-end px-4 py-12"
 >
   <div className="absolute mx-auto inset-x-0 w-[32rem] h-[10rem] top-[4rem] brightness-200">
     <Image src={logo} layout="fill" className="object-contain"/>
@@ -29,9 +30,8 @@ const Intro = () => <motion.div
   <div className="absolute bg-gradient-to-t from-brand-1 to-transparent bottom-0 h-[60dvh] w-full "/>
 
   <div className="container flex flex-col justify-center items-center z-10">
-    <h1 className="ft-11 text-white font-semibold my-12 text-center">La sonrisa que sueñas está más
-      cerca de lo que imaginas</h1>
-    <p className="ft-4 font-medium text-white text-center">Sencillo, sin dolor y sin tratamientos innecesarios</p>
+    <h1 className="ft-11 text-white font-semibold my-12 text-center">Tus joyas, oro y relojes podrían tener más valor del que imaginas</h1>
+    <p className="ft-4 font-medium text-white text-center">En menos de un minuto sabrás si tienes algo que podría valer miles más de lo que esperas</p>
 
     <div className="w-full max-w-[50rem] h-12 p-2 mt-16 mb-4 bg-gray-200 rounded-full overflow-hidden">
       <motion.div
@@ -42,7 +42,7 @@ const Intro = () => <motion.div
       />
     </div>
     <p className="-ft-1 flex items-center text-center text-gray-100">
-      Cargando el test
+      Cargando
       <span
         className="-ft-1 material-symbols-outlined animate-spin ml-4">progress_activity</span>
     </p>
@@ -52,50 +52,58 @@ const Intro = () => <motion.div
 const setFormSteps = ({fullName, phone}) => ([
   {
     type: 'radio',
-    name: 'sensacion',
-    title: '¿Cómo te sientes hoy con tu sonrisa?',
+    name: 'pieza',
+    title: '¿Qué tipo de pieza quieres vender?',
     inputOptions: {required: 'Selecciona una por favor'},
     options: [
       {
-        value: 'mejora',
-        label: 'Me gusta pero creo que podría mejorar',
+        value: 'reloj',
+        label: 'Reloj de lujo (Rolex, Omega, Cartier, etc...)',
       },
       {
-        value: 'inconsciente',
-        label: 'No tengo idea si necesito algo',
+        value: 'joeria-oro',
+        label: 'Joyería de oro',
       },
       {
-        value: 'inseguro',
-        label: 'A veces me siento inseguro',
+        value: 'joeria-plata',
+        label: 'Joyería de plata',
       },
       {
-        value: 'cambio',
-        label: 'Me siento bien, pero quiero un cambio',
+        value: 'piedras',
+        label: 'Piezas con diamantes o piedras preciosas',
+      },
+      {
+        value: 'oro',
+        label: 'Centenarios o monedas de oro',
+      },
+      {
+        value: 'plata',
+        label: 'Onza de plata o piezas de plata',
       },
     ],
     cols: 1,
   },
   {
     type: 'radio',
-    name: 'mejora',
-    title: '¿Qué te gustaría mejorar?',
+    name: 'estado',
+    title: '¿Cuál es el estado general de la pieza?',
     inputOptions: {required: 'Selecciona una por favor'},
     options: [
       {
-        value: 'blanqueamiento',
-        label: 'Quiero quitarme las manchas blancas o zonas amarillentas',
+        value: 'como-nuevo',
+        label: 'Perfecto / como nueva',
       },
       {
-        value: 'forma',
-        label: 'Forma, tamaño o espacios',
+        value: 'normal',
+        label: 'Buen estado con uso normal',
       },
       {
-        value: 'dientes-chuecos',
-        label: 'Tengo los dientes chuecos o montados',
+        value: 'detalles',
+        label: 'Con detalles o desgaste visible',
       },
       {
         value: 'no-sabe',
-        label: 'No lo sé, quiero ver si hay algo',
+        label: 'Maltratada',
       },
     ],
     cols: 1,
@@ -103,24 +111,24 @@ const setFormSteps = ({fullName, phone}) => ([
   {
     type: 'radio',
     name: 'interes',
-    title: '¿Por qué te interesa mejorar tu sonrisa hoy?',
+    title: '¿Por qué te interesa vender estas piezas?',
     inputOptions: {required: 'Selecciona una por favor'},
     options: [
       {
-        value: 'seguridad',
-        label: 'Para sentirme más seguro',
+        value: 'liquidez',
+        label: 'Necesito liquidez',
       },
       {
-        value: 'evento-importante',
-        label: 'Se viene un evento importante',
+        value: 'compra',
+        label: 'Quiero comprar otras piezas',
       },
       {
-        value: 'ya-es-consciente',
-        label: 'Porque nunca lo he hecho y ya quiero atenderme',
+        value: 'sin-uso',
+        label: 'Solo porque no las uso',
       },
       {
-        value: 'cuidado',
-        label: 'Porque me gusta cuidarme',
+        value: 'valoracion',
+        label: 'Solo quiero una valoración sin compromiso',
       },
     ],
     cols: 1,
@@ -131,83 +139,21 @@ const setFormSteps = ({fullName, phone}) => ([
     autoAdvance: true,
     render: () => (
       <div className={`relative flex-grow`}>
-        <p className="ft-6 sans text-center font-bold">La diferencia está en como te cuidamos</p>
+        <p className="ft-6 sans text-center font-bold">{content.testimonios.banner.title}</p>
         <div className="relative w-full my-8 pt-[80%] rounded-2xl overflow-hidden">
-          <Image src={i02} layout="fill" objectFit="cover"/>
+          <Image src="/landing/testimonios.jpg" layout="fill" objectFit="cover"/>
         </div>
-        <div className="gap-8 grid grid-cols-1">
-          <div className="p-6 rounded-xl bg-brand-2 border-2 border-brand-2 shadow-md">
-            <p className="font-semibold ft-4 text-center">+500 sonrisas transformadas</p>
-          </div>
-          <div className="p-6 rounded-xl bg-brand-2 border-2 border-brand-2 shadow-md">
-            <p className="font-semibold ft-4 text-center">Atención 24/7 por WhatsApp</p>
-          </div>
-          <div className="p-6 rounded-xl bg-brand-2 border-2 border-brand-2 shadow-md">
-            <p className="font-semibold ft-4 text-center">Diagnóstico con IA</p>
-          </div>
-          <div className="p-6 rounded-xl bg-brand-2 border-2 border-brand-2 shadow-md">
-            <p className="font-semibold ft-4 text-center">Opciones de pago accesibles</p>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
-    type: 'text',
-    name: 'edad',
-    title: '¿Cuántos años tienes?',
-    inputOptions: {required: 'Compártenos tu edad'},
-  },
-  {
-    type: 'radio',
-    name: 'frecuencia',
-    title: '¿Vas al dentista con frecuencia?',
-    inputOptions: {required: 'Selecciona una por favor'},
-    options: [
-      {
-        value: 'frecuente',
-        label: 'Sí, cada 6 meses',
-      },
-      {
-        value: 'por-dolor',
-        label: 'Solo si me duele algo',
-      },
-      {
-        value: 'estetico',
-        label: 'Fui hace poco por algo estético',
-      },
-      {
-        value: 'hace-mucho',
-        label: 'Hace mucho que no voy',
-      },
-    ],
-    cols: 1,
-  },
-  {
-    type: 'textarea',
-    name: 'creencia',
-    title: 'Cuéntame qué quieres lograr con este cambio o qué crees que necesitas.',
-    inputOptions: {required: 'Selecciona una por favor'},
-    cols: 4,
-  },
-  {
-    type: 'checkpoint',
-    name: 'checkpoint-2',
-    render: () => (
-      <div className={`relative flex-grow`}>
-        <p className="ft-6 sans text-center font-bold">Pacientes que ya confiaron en nosotros</p>
-        <div className="relative w-full my-8 pt-[80%] rounded-2xl overflow-hidden">
-          <Image src={i03} layout="fill" objectFit="cover"/>
-        </div>
-        <div className="relative">
-          <div className="relative w-full aspect-[1/.88] overflow-hidden">
-            <Image src="/survey/Testimonios_01.png" layout="fill" objectFit="cover" objectPosition="top"/>
-          </div>
-          <div className="relative w-full aspect-[1/.97] overflow-hidden">
-            <Image src="/survey/Testimonios_02.png" layout="fill" objectFit="cover" objectPosition="top"/>
-          </div>
-          <div className="relative w-full aspect-[1/1.2] overflow-hidden mb-4">
-            <Image src="/survey/Testimonios_03.png" layout="fill" objectFit="cover" objectPosition="top"/>
+        <div className="container my-40">
+          <div className="grid md:grid-cols-3 gap-16 items-stretch">
+            {content.testimonios.content.items.map((i, idx) =>
+              <div className="relative flex flex-col p-12 pt-32 border border-yellow-500 shadow-md">
+                <p className="!text-[16rem] absolute -top-28 -left-2 material-icons">format_quote</p>
+                <p className="ft-2 font-medium flex-grow my-20">{i.description}</p>
+                <p className="ft-1 text-right">
+                  {i.title}
+                </p>
+              </div>,
+            )}
           </div>
         </div>
       </div>
@@ -216,7 +162,7 @@ const setFormSteps = ({fullName, phone}) => ([
   {
     type: 'radio',
     name: 'valoracion',
-    title: '¿Has recibido una valoración de tratamiento antes?',
+    title: '¿Has recibido una valoración antes?',
     inputOptions: {required: 'Selecciona una por favor'},
     options: [
       {
@@ -237,7 +183,7 @@ const setFormSteps = ({fullName, phone}) => ([
   {
     type: 'radio',
     name: 'inmediatez',
-    title: '¿Cuándo te gustaría comenzar tu tratamiento?',
+    title: '¿Qué tanta urgencia tienes por vender esta pieza?',
     inputOptions: {required: 'Selecciona una por favor'},
     options: [
       {
@@ -245,51 +191,19 @@ const setFormSteps = ({fullName, phone}) => ([
         label: 'Lo antes posible!',
       },
       {
-        value: '2-semanas',
-        label: 'En un par de semanas',
-      },
-      {
         value: 'no-sabe',
         label: 'Más adelante, estoy explorando',
       },
       {
         value: 'depende',
-        label: 'Depende de que me recomienden',
+        label: 'Depende de la valoración',
       },
     ],
     cols: 1,
   },
   {
-    type: 'checkpoint',
-    name: 'checkpoint-3',
-    autoAdvance: true,
-    render: () => (
-      <div className="container flex flex-col justify-center items-center z-10">
-        <div className="relative w-full my-8 pt-[80%] rounded-2xl overflow-hidden">
-          <Image src={i04} layout="fill" objectFit="cover"/>
-        </div>
-        <p className="ft-4 font-semibold mt-12 text-center">Dame unos segundos</p>
-        <h1 className="ft-8 mb-12 text-center md:w-2/3">Estamos analizando tus respuestas</h1>
-
-        <div className="w-full max-w-[50rem] h-12 p-2 mt-8 mb-4 bg-gray-200 rounded-full overflow-hidden">
-          <motion.div
-            initial={{width: '0%'}}
-            animate={{width: '100%'}}
-            transition={{duration: 5, ease: 'easeInOut'}}
-            className="h-full bg-gradient-to-br from-blue-800 to-indigo-500 rounded-2xl"
-          />
-        </div>
-        <p className="-ft-1 flex items-center text-center">
-          Analizando
-          <span
-            className="-ft-1 material-symbols-outlined animate-spin ml-4">progress_activity</span>
-        </p>
-      </div>
-    ),
-  },
-  {
     type: 'opt-in',
-    title: 'Ok, estamos listos para trabajar en tu nueva sonrisa',
+    title: 'Ok, estamos listos para recibirte en nuestra boutique',
     description: 'Compárteme tu nombre y WhatsApp para programar tu valoración presencial.',
     fields: [
       {
@@ -339,7 +253,6 @@ export default function Survey({lead, utm}) {
     }
     window.scrollTo(0, 0);
   }, [showIntro]);
-
   useEffect(() => {
     const current = formSteps[formStep];
 
@@ -393,7 +306,7 @@ export default function Survey({lead, utm}) {
 
       const payload = {...lead, ...data, ...utm};
 
-      const res = await fetch(info.surveyWebhook, {
+      const res = await fetch(info.optInWebhook, {
         method: 'POST',
         body: JSON.stringify(payload),
         headers: {
@@ -408,7 +321,7 @@ export default function Survey({lead, utm}) {
 
       setCookie('lead', {...data, id: res.id});
 
-      await router.push('/results');
+      await router.push('/thankyou');
 
     } catch (err) {
       console.error('Error al enviar formulario:', err);

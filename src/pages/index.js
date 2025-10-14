@@ -11,8 +11,6 @@ import scrollDepth from '../utils/scrollDepth';
 
 export default function Index() {
   const [lastClick, setLastClick] = useState('');
-  const [slide, setSlide] = useState(0);
-  const trackRef = useRef(null);
 
   useEffect(() => {
     scrollDepth({
@@ -25,9 +23,6 @@ export default function Index() {
     setLastClick(origin);
     const el = document.getElementById('contact');
     if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
-    // if (typeof window !== 'undefined' && window.fbq) {
-    //   window.fbq('trackCustom', 'CTA_Click', {origin});
-    // }
   };
 
 
@@ -59,8 +54,8 @@ export default function Index() {
           <p className="ft-3 mt-16 md:text-white invert" dangerouslySetInnerHTML={{__html: hero.banner.description}}/>
 
           <div className="flex flex-col justify-start items-start mt-20 md:invert">
-            <Link href="#contact">
-              <a onClick={() => goToContact('benefits')} className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
+            <Link href="/survey">
+              <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
             </Link>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
@@ -105,8 +100,8 @@ export default function Index() {
             </div>
           </div>
           <div className="reading-container mt-20">
-            <Link href="#contact">
-              <a onClick={() => goToContact('catalogo')} className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
+            <Link href="/survey">
+              <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
             </Link>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
@@ -227,8 +222,8 @@ export default function Index() {
             )}
           </div>
           <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">
-            <Link href="#contact">
-              <a onClick={() => goToContact('atributos')} className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
+            <Link href="/survey">
+              <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
             </Link>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
@@ -255,9 +250,8 @@ export default function Index() {
             )}
           </div>
           <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">
-            <Link href="#contact">
-              <a onClick={() => goToContact('testimonios')}
-                 className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
+            <Link href="/survey">
+              <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
             </Link>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
@@ -290,9 +284,8 @@ export default function Index() {
               )}
             </div>
             <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">
-              <Link href="#contact">
-                <a onClick={() => goToContact('garantias')}
-                   className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
+              <Link href="/survey">
+                <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
               </Link>
               <p className="-ft-1">{hero.cta.second}</p>
             </div>
@@ -336,7 +329,7 @@ export default function Index() {
         className='fixed inset-x-0 bottom-4 px-8 z-[9999] isolate'>
         <div className='flex justify-center lg:justify-end'>
           <a
-            href="#contact"
+            href={`https://wa.me/+${info.whatsapp.value}`}
             onClick={() => goToContact('wa-btn')}
             className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg !tracking-normal'
           >
