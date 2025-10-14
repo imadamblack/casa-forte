@@ -43,7 +43,7 @@ export default function OptInForm({lastClick = ''}) {
         setCookie('lead', {...data, id});
 
         const forwardLink = document.createElement('a');
-        forwardLink.href = `https://wa.me/+${info.whatsapp.value}`;
+        forwardLink.href = `https://wa.me/${info.whatsapp.value}`;
         forwardLink.target = '_blank';
         forwardLink.click();
 
@@ -59,7 +59,7 @@ export default function OptInForm({lastClick = ''}) {
         setCookie('lead', {...data});
 
         const forwardLink = document.createElement('a');
-        forwardLink.href = `https://wa.me/+${info.whatsapp.value}`;
+        forwardLink.href = `https://wa.me/${info.whatsapp.value}`;
         forwardLink.target = '_blank';
         forwardLink.click();
 

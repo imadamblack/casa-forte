@@ -329,8 +329,8 @@ export default function Index() {
         className='fixed inset-x-0 bottom-4 px-8 z-[9999] isolate'>
         <div className='flex justify-center lg:justify-end'>
           <a
-            href={`https://wa.me/+${info.whatsapp.value}`}
-            onClick={() => goToContact('wa-btn')}
+            href={`https://wa.me/${info.whatsapp.value}`}
+            target="_blank"
             className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg !tracking-normal'
           >
             <span className="filter invert mr-4"><Image src="/whatsapp.svg" width={24} height={24}/></span>
