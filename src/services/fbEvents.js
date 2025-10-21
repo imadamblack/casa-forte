@@ -38,7 +38,7 @@ export function gtagSendEvent(url) {
       window.location = url;
     }
   };
-  gtag('event', 'conversion', {
+  gtag('event', 'lead', {
     'event_callback': callback,
     'event_timeout': 2000,
     // <event_parameters>
