@@ -8,7 +8,7 @@ import fbEvent from '../services/fbEvents';
 import { gtagSendEvent } from '../services/fbEvents';
 import Image from 'next/image';
 import { info } from '../../info';
-import { content } from '../../content'
+import { content } from '../../content';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import logo from '../../public/logo.png';
@@ -28,8 +28,10 @@ const Intro = () => <motion.div
   <div className="absolute bg-gradient-to-t from-brand-1 to-transparent bottom-0 h-[60dvh] w-full "/>
 
   <div className="container flex flex-col justify-center items-center z-10">
-    <h1 className="ft-11 text-white font-semibold my-12 text-center">Tus joyas, oro y relojes podrían tener más valor del que imaginas</h1>
-    <p className="ft-4 font-medium text-white text-center">En menos de un minuto sabrás si tienes algo que podría valer miles más de lo que esperas</p>
+    <h1 className="ft-11 text-white font-semibold my-12 text-center">Tus joyas, oro y relojes podrían tener más valor
+      del que imaginas</h1>
+    <p className="ft-4 font-medium text-white text-center">En menos de un minuto sabrás si tienes algo que podría valer
+      miles más de lo que esperas</p>
 
     <div className="w-full max-w-[50rem] h-12 p-2 mt-16 mb-4 bg-gray-200 rounded-full overflow-hidden">
       <motion.div
@@ -232,6 +234,9 @@ export default function Survey({lead, utm}) {
   const [inputError, setInputError] = useState(null);
   const [sending, setSending] = useState(false);
 
+  console.log('lead', lead);
+  console.log('utm', utm);
+
   const methods = useForm({mode: 'all'});
   const {
     register,
@@ -267,7 +272,6 @@ export default function Survey({lead, utm}) {
 
     if (step?.type === 'checkpoint') {
       fbEvent(step?.name);
-      console.log(step?.name);
     }
   }, [formStep]);
 
@@ -415,14 +419,29 @@ export default function Survey({lead, utm}) {
 }
 
 export async function getServerSideProps(ctx) {
-  const {req, res} = ctx;
-  const leadCookie = getCookie('lead', {req, res}) || '{}';
-  const leadUtmCookie = getCookie('lead_utm', {req, res}) || '{}';
-  const _fbc = getCookie('_fbc', {req, res}) || '';
-  const _fbp = getCookie('_fbp', {req, res}) || '';
+  const {req} = ctx;
+  const cookiesHeader = req.headers.cookie || '';
 
-  const lead = JSON.parse(leadCookie);
-  const leadUtm = JSON.parse(leadUtmCookie);
+  const keys = ['utm', '_fbc', '_fbp', 'lead'];
+  const cookies = {};
+
+  for (const key of keys) {
+    const raw = cookiesHeader
+      .split('; ')
+      .find(c => c.startsWith(`${key}=`))
+      ?.split('=')[1];
+
+    if (!raw) continue;
+
+    try {
+      const clean = raw.startsWith('j%3A') ? raw.slice(4) : raw;
+      cookies[key] = JSON.parse(decodeURIComponent(clean));
+    } catch {
+      cookies[key] = decodeURIComponent(raw);
+    }
+  }
+
+  const {lead, utm} = cookies;
 
   if (!lead || lead === 'null' || Object.keys(lead).length === 0) {
     return {
@@ -432,10 +451,8 @@ export async function getServerSideProps(ctx) {
           phone: '',
           whatsapp: '',
           sheetRow: '',
-          _fbc,
-          _fbp,
         },
-        utm: leadUtm,
+        utm,
       },
     };
   }
@@ -447,10 +464,8 @@ export async function getServerSideProps(ctx) {
         phone: lead.phone,
         whatsapp: lead.whatsapp,
         sheetRow: lead.sheetRow || '',
-        _fbc,
-        _fbp,
       },
-      utm: leadUtm,
+      utm,
     },
   };
 }
