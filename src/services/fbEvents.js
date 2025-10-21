@@ -38,10 +38,9 @@ export function gtagSendEvent(url) {
       window.location = url;
     }
   };
-  gtag('event', 'lead', {
-    'event_callback': callback,
-    'event_timeout': 2000,
-    // <event_parameters>
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17649963646/_MzdCKfprrEbEP6klOBB',
+    'event_callback': callback
   });
   return false;
 }
