@@ -5,15 +5,13 @@ import { useRouter } from 'next/router';
 import { setCookie, getCookie } from 'cookies-next';
 import StepRenderer from '../components/form/stepRenderer';
 import fbEvent from '../services/fbEvents';
+import { gtagSendEvent } from '../services/fbEvents';
 import Image from 'next/image';
 import { info } from '../../info';
 import { content } from '../../content'
 import { motion, AnimatePresence } from 'framer-motion';
 
 import logo from '../../public/logo.png';
-import i02 from '../../public/survey/01.png';
-import i03 from '../../public/survey/01.png';
-import i04 from '../../public/survey/01.png';
 
 const Intro = () => <motion.div
   key="intro"
@@ -61,11 +59,11 @@ const setFormSteps = ({fullName, phone}) => ([
         label: 'Reloj de lujo (Rolex, Omega, Cartier, etc...)',
       },
       {
-        value: 'joeria-oro',
+        value: 'joyeria-oro',
         label: 'Joyería de oro',
       },
       {
-        value: 'joeria-plata',
+        value: 'joyeria-plata',
         label: 'Joyería de plata',
       },
       {
@@ -318,6 +316,8 @@ export default function Survey({lead, utm}) {
         'Lead',
         {phone: data.phone, externalID: res.id},
       );
+
+      gtagSendEvent(router.route);
 
       setCookie('lead', {...data, id: res.id});
 
