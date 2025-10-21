@@ -142,7 +142,7 @@ const setFormSteps = ({fullName, phone}) => ([
           <Image src="/landing/testimonios.jpg" layout="fill" objectFit="cover"/>
         </div>
         <div className="container my-40">
-          <div className="grid md:grid-cols-3 gap-16 items-stretch">
+          <div className="grid lg:grid-cols-3 gap-16 items-stretch">
             {content.testimonios.content.items.map((i, idx) =>
               <div className="relative flex flex-col p-12 pt-32 border border-yellow-500 shadow-md">
                 <p className="!text-[16rem] absolute -top-28 -left-2 material-icons">format_quote</p>
@@ -316,8 +316,8 @@ export default function Survey({lead, utm}) {
         'Lead',
         {phone: data.phone, externalID: res.id},
       );
+      gtagSendEvent();
 
-      gtagSendEvent(router.route);
 
       setCookie('lead', {...data, id: res.id});
 

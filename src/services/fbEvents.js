@@ -32,15 +32,10 @@ export default function fbEvent(
     .catch(err => console.log(err));
 }
 
-export function gtagSendEvent(url) {
-  var callback = function () {
-    if (typeof url === 'string') {
-      window.location = url;
-    }
-  };
+export function gtagSendEvent() {
   gtag('event', 'conversion', {
     'send_to': 'AW-17649963646/_MzdCKfprrEbEP6klOBB',
-    'event_callback': callback
+    'event_callback': () => {}
   });
   return false;
 }
