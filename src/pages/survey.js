@@ -443,29 +443,15 @@ export async function getServerSideProps(ctx) {
 
   const {lead, utm} = cookies;
 
-  if (!lead || lead === 'null' || Object.keys(lead).length === 0) {
-    return {
-      props: {
-        lead: {
-          fullName: '',
-          phone: '',
-          whatsapp: '',
-          sheetRow: '',
-        },
-        utm,
-      },
-    };
-  }
-
   return {
     props: {
       lead: {
-        fullName: lead.fullName,
-        phone: lead.phone,
-        whatsapp: lead.whatsapp,
-        sheetRow: lead.sheetRow || '',
+        fullName: lead?.fullName ?? '',
+        phone: lead?.phone ?? '',
+        whatsapp: lead?.whatsapp ?? '',
+        sheetRow: lead?.sheetRow ?? '',
       },
-      utm,
+      utm: utm ?? null,
     },
   };
 }
