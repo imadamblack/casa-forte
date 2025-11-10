@@ -163,10 +163,10 @@ export default function Index() {
         ) 1`,
         borderImageSlice: 1,
       }}>
-        <div className="container py-20">
+        <div className="container grid lg:grid-cols-2 gap-12 py-20">
           <div className="relative flex flex-col md:flex-row gap-16 items-stretch">
             <div className="w-full md:w-1/3">
-              <h2 className="font-semibold">En dónde nos encontramos</h2>
+              <h2 className="font-semibold">Plaza Polanco</h2>
               <p>
                 Av. Jaime Balmes 11 LOCAL 111<br/>
                 Polanco, Polanco I Secc,<br/>
@@ -191,7 +191,34 @@ export default function Index() {
                 title="Ubicación: Av. Jaime Balmes 11, Polanco, CDMX"
               />
             </div>
+          </div>
 
+          <div className="relative flex flex-col md:flex-row gap-16 items-stretch">
+            <div className="w-full md:w-1/3">
+              <h2 className="font-semibold">La Cúspide Sky Mall</h2>
+              <p>
+                Avenida Lomas Verdes 1200<br/>
+                Naucalpan de Juárez, 53124<br/>
+                Ciudad de México, CDMX<br/>
+              </p>
+              <div className="mt-12">
+                <Link href="#contact">
+                  <a onClick={() => goToContact('atributos')}
+                     className="button mb-4">Contáctanos y visítanos</a>
+                </Link>
+                <p className="-ft-1">{hero.cta.second}</p>
+              </div>
+            </div>
+            <div className="relative w-full md:w-2/3 aspect-square md:aspect-video">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.6328052422414!2d-99.27004977478356!3d19.514427581782556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2034e0207c5b1%3A0x3199f87d77124290!2sAvenida%20Lomas%20Verdes%201200%2C%20La%20Cuspide%2C%2053124%20Naucalpan%20de%20Ju%C3%A1rez%2C%20M%C3%A9x.!5e0!3m2!1ses!2smx!4v1762803623040!5m2!1ses!2smx"
+                style={{position: 'absolute', inset: 0, border: 0, width: '100%', height: '100%'}}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación: Av. Jaime Balmes 11, Polanco, CDMX"
+              />
+            </div>
           </div>
         </div>
       </section>
