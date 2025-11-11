@@ -337,7 +337,10 @@ export default function Survey({lead, utm}) {
         'Lead',
         {phone: data.phone, externalID: res.id},
       );
-      gtagSendEvent('_MzdCKfprrEbEP6klOBB');
+      gtagSendEvent(
+        '_MzdCKfprrEbEP6klOBB',
+        {fullName: data.fullName, phone: data.phone}
+      );
 
 
       setCookie('lead', {...data, id: res.id});

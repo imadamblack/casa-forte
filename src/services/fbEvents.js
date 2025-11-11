@@ -32,10 +32,23 @@ export default function fbEvent(
     .catch(err => console.log(err));
 }
 
-export function gtagSendEvent(conversionId) {
-  gtag('event', 'conversion', {
-    'send_to': `AW-17649963646/${conversionId}`,
-    'event_callback': () => {}
+export function gtagSendEvent(conversionId, data = {}) {
+  const {fullName, phone} = data;
+  const [firstName = '', lastName = ''] = fullName.split(' ');
+
+  gtag('set', 'user_data', {
+    phone_number: phone.trim(),
+    address: {
+      first_name: firstName.trim(),
+      last_name: lastName.trim(),
+    },
   });
+
+  gtag('event', 'conversion', {
+    send_to: `AW-17649963646/${conversionId}`,
+    event_callback: () => {},
+  });
+
+
   return false;
 }
