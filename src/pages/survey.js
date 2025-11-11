@@ -339,7 +339,7 @@ export default function Survey({lead, utm}) {
       );
       gtagSendEvent(
         '_MzdCKfprrEbEP6klOBB',
-        {fullName: data.fullName, phone: data.phone}
+        {fullName: data.fullName, phone: data.whatsapp}
       );
 
 
