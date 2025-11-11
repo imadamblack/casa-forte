@@ -144,7 +144,7 @@ const setFormSteps = ({fullName, phone}) => ([
           <Image src="/landing/testimonios.jpg" layout="fill" objectFit="cover"/>
         </div>
         <div className="container my-40">
-          <div className="grid lg:grid-cols-3 gap-16 items-stretch">
+          <div className="grid grid-cols-1 gap-16 items-stretch">
             {content.testimonios.content.items.map((i, idx) =>
               <div className="relative flex flex-col p-12 pt-32 border border-yellow-500 shadow-md">
                 <p className="!text-[16rem] absolute -top-28 -left-2 material-icons">format_quote</p>
@@ -201,6 +201,23 @@ const setFormSteps = ({fullName, phone}) => ([
     ],
     cols: 1,
   },
+  // {
+  //   type: 'radio',
+  //   name: 'sucursal',
+  //   title: '¿Qué sucursal te queda mejor para traer tus piezas?',
+  //   inputOptions: {required: 'Selecciona una por favor'},
+  //   options: [
+  //     {
+  //       value: 'polanco',
+  //       label: 'Plaza Polanco',
+  //     },
+  //     {
+  //       value: 'cuspide',
+  //       label: 'La Cúspide Sky Mall',
+  //     },
+  //   ],
+  //   cols: 1,
+  // },
   {
     type: 'opt-in',
     title: 'Ok, estamos listos para recibirte en nuestra boutique',
@@ -320,7 +337,7 @@ export default function Survey({lead, utm}) {
         'Lead',
         {phone: data.phone, externalID: res.id},
       );
-      gtagSendEvent();
+      gtagSendEvent('_MzdCKfprrEbEP6klOBB');
 
 
       setCookie('lead', {...data, id: res.id});

@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Blockbuster from '../components/blockbuster';
 import Faqs from '../components/faqs';
 import scrollDepth from '../utils/scrollDepth';
+import { gtagSendEvent } from '../services/fbEvents';
 
 export default function Index() {
   const [lastClick, setLastClick] = useState('');
@@ -357,6 +358,7 @@ export default function Index() {
         <div className='flex justify-center lg:justify-end'>
           <a
             href={`https://wa.me/${info.whatsapp.value}`}
+            onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
             target="_blank"
             className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg !tracking-normal'
           >
