@@ -251,9 +251,6 @@ export default function Survey({lead, utm}) {
   const [inputError, setInputError] = useState(null);
   const [sending, setSending] = useState(false);
 
-  console.log('lead', lead);
-  console.log('utm', utm);
-
   const methods = useForm({mode: 'all'});
   const {
     register,
@@ -289,6 +286,7 @@ export default function Survey({lead, utm}) {
 
     if (step?.type === 'checkpoint') {
       fbEvent(step?.name);
+      gtag('event', step?.name.replace('-', '_'))
     }
   }, [formStep]);
 
