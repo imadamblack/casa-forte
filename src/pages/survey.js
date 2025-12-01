@@ -56,10 +56,10 @@ const setFormSteps = ({fullName, phone}) => ([
     title: '¿Qué tipo de pieza quieres vender?',
     inputOptions: {required: 'Selecciona una por favor'},
     options: [
-      {
-        value: 'reloj',
-        label: 'Reloj de lujo (Rolex, Omega, Cartier, etc...)',
-      },
+      // {
+      //   value: 'reloj',
+      //   label: 'Reloj de lujo (Rolex, Omega, Cartier, etc...)',
+      // },
       {
         value: 'joyeria-oro',
         label: 'Joyería de oro',
@@ -68,46 +68,46 @@ const setFormSteps = ({fullName, phone}) => ([
         value: 'joyeria-plata',
         label: 'Joyería de plata',
       },
-      {
-        value: 'piedras',
-        label: 'Piezas con diamantes o piedras preciosas',
-      },
+      // {
+      //   value: 'piedras',
+      //   label: 'Piezas con diamantes o piedras preciosas',
+      // },
       {
         value: 'oro',
         label: 'Centenarios o monedas de oro',
       },
       {
         value: 'plata',
-        label: 'Onza de plata o piezas de plata',
+        label: 'Onzas o piezas de plata',
       },
     ],
     cols: 1,
   },
-  {
-    type: 'radio',
-    name: 'estado',
-    title: '¿Cuál es el estado general de la pieza?',
-    inputOptions: {required: 'Selecciona una por favor'},
-    options: [
-      {
-        value: 'como-nuevo',
-        label: 'Perfecto / como nueva',
-      },
-      {
-        value: 'normal',
-        label: 'Buen estado con uso normal',
-      },
-      {
-        value: 'detalles',
-        label: 'Con detalles o desgaste visible',
-      },
-      {
-        value: 'no-sabe',
-        label: 'Maltratada',
-      },
-    ],
-    cols: 1,
-  },
+  // {
+  //   type: 'radio',
+  //   name: 'estado',
+  //   title: '¿Cuál es el estado general de la pieza?',
+  //   inputOptions: {required: 'Selecciona una por favor'},
+  //   options: [
+  //     {
+  //       value: 'como-nuevo',
+  //       label: 'Perfecto / como nueva',
+  //     },
+  //     {
+  //       value: 'normal',
+  //       label: 'Buen estado con uso normal',
+  //     },
+  //     {
+  //       value: 'detalles',
+  //       label: 'Con detalles o desgaste visible',
+  //     },
+  //     {
+  //       value: 'no-sabe',
+  //       label: 'Maltratada',
+  //     },
+  //   ],
+  //   cols: 1,
+  // },
   {
     type: 'radio',
     name: 'motivo',
