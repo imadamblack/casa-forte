@@ -54,10 +54,18 @@ export default function Index() {
           </h1>
           <p className="ft-3 mt-16 md:text-white invert" dangerouslySetInnerHTML={{__html: hero.banner.description}}/>
 
-          <div className="flex flex-col justify-start items-start mt-20 md:invert">
-            <Link href="/survey">
-              <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
-            </Link>
+          <div className="flex flex-col md:w-1/3 justify-start items-start mt-20 md:invert">
+            <a href={`https://wa.me/${info.whatsapp.value}`} className="relative button !w-full mb-4">
+              <span className="filter invert mr-4"><Image src="/whatsapp.svg" width={20} height={20}/></span>
+              {hero.cta.main ?? 'Contáctanos'}
+            </a>
+            <a
+              href={`tel:${info.whatsapp.value}`}
+              target="_blank"
+              className="button-secondary !w-full mb-4"
+            >
+              {hero.cta.secondary ?? 'Llámanos'}
+            </a>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
 
@@ -102,7 +110,7 @@ export default function Index() {
           </div>
           <div className="reading-container mt-20">
             <Link href="/survey">
-              <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
+              <a className="button mb-4">{'Valúa tus piezas'}</a>
             </Link>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
@@ -175,9 +183,8 @@ export default function Index() {
                 Ciudad de México, CDMX<br/>
               </p>
               <div className="mt-12">
-                <Link href="#contact">
-                  <a onClick={() => goToContact('atributos')}
-                     className="button mb-4">Contáctanos y visítanos</a>
+                <Link href="/survey">
+                  <a className="button mb-4">{'Valúa tus piezas'}</a>
                 </Link>
                 <p className="-ft-1">{hero.cta.second}</p>
               </div>
@@ -203,9 +210,8 @@ export default function Index() {
                 Ciudad de México, CDMX<br/>
               </p>
               <div className="mt-12">
-                <Link href="#contact">
-                  <a onClick={() => goToContact('atributos')}
-                     className="button mb-4">Contáctanos y visítanos</a>
+                <Link href="/survey">
+                  <a className="button mb-4">{'Valúa tus piezas'}</a>
                 </Link>
                 <p className="-ft-1">{hero.cta.second}</p>
               </div>
@@ -251,7 +257,7 @@ export default function Index() {
           </div>
           <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">
             <Link href="/survey">
-              <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
+              <a className="button mb-4">{'Valúa tus piezas'}</a>
             </Link>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
@@ -279,7 +285,7 @@ export default function Index() {
           </div>
           <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">
             <Link href="/survey">
-              <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
+              <a className="button mb-4">{'Valúa tus piezas'}</a>
             </Link>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
@@ -313,7 +319,7 @@ export default function Index() {
             </div>
             <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">
               <Link href="/survey">
-                <a className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>
+                <a className="button mb-4">{'Valúa tus piezas'}</a>
               </Link>
               <p className="-ft-1">{hero.cta.second}</p>
             </div>
@@ -346,9 +352,9 @@ export default function Index() {
               <p className="ft-1 font-semibold text-neutral-900">{cta.description}</p>
               <p className="ft-1 text-neutral-900" dangerouslySetInnerHTML={{__html: cta.paragraph}}/>
             </div>
-            <OptInForm
-              lastClick={lastClick}
-            />
+            <Link href="/survey">
+              <a className="button mb-4">{'Valúa tus piezas'}</a>
+            </Link>
           </div>
         </div>
       </section>
@@ -363,7 +369,7 @@ export default function Index() {
             className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg !tracking-normal'
           >
             <span className="filter invert mr-4"><Image src="/whatsapp.svg" width={24} height={24}/></span>
-            Mándanos un WhatsApp
+            Habla con un valuador
           </a>
 
         </div>

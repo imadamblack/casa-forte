@@ -1,13 +1,16 @@
 export const content = {
   hero: {
     banner: {
-      title: 'Transformamos tus joyas en liquidez inmediata, con la discreción y el trato que solo una boutique de Polanco puede ofrecer',
-      description: 'No somos una casa de empeño. <br/>Somos una casa de valor.',
+      title: 'Compra de oro y plata en CDMX: joyas, centenarios, monedas y otras piezas.',
+      description: 'Con discreción y pago inmediato<br/>No somos una casa de empeño.',
     },
     content: {
       paragraph: 'Valoramos cada pieza y te pagamos en el momento. <br/><br/>Sin estrés. Sin demoras. Solo un intercambio justo. <br/><br/>Convierte tus piezas en nuevas oportunidades.',
     },
-    cta: {main: 'Descubre cuánto podrías recibir hoy'},
+    cta: {
+      main: 'Habla con un valuador',
+      secondary: 'Llámanos'
+    },
   },
   beneficios: {
     banner: {

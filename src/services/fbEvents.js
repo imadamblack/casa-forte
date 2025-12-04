@@ -33,7 +33,8 @@ export default function fbEvent(
 }
 
 export function gtagSendEvent(conversionId, data = {}) {
-  const {fullName, phone} = data;
+  const fullName = data.fullName ?? '';
+  const phone = data.phone ?? '';
   const [firstName = '', lastName = ''] = fullName.split(' ');
 
   gtag('set', 'user_data', {

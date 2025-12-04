@@ -28,16 +28,14 @@ const Intro = () => <motion.div
   <div className="absolute bg-gradient-to-t from-brand-1 to-transparent bottom-0 h-[60dvh] w-full "/>
 
   <div className="container flex flex-col justify-center items-center z-10">
-    <h1 className="ft-11 text-white font-semibold my-12 text-center">Tus joyas, oro y relojes podrían tener más valor
-      del que imaginas</h1>
-    <p className="ft-4 font-medium text-white text-center">En menos de un minuto sabrás si tienes algo que podría valer
-      miles más de lo que esperas</p>
+    <h1 className="ft-11 text-white font-semibold my-12 text-center">{content.hero.banner.title}</h1>
+    <p className="ft-4 font-medium text-white text-center">En menos de un minuto sabrás si tienes algo que vale más de lo que esperas</p>
 
     <div className="w-full max-w-[50rem] h-12 p-2 mt-16 mb-4 bg-gray-200 rounded-full overflow-hidden">
       <motion.div
         initial={{width: '0%'}}
         animate={{width: '100%'}}
-        transition={{duration: 3, ease: 'easeInOut'}}
+        transition={{duration: 5, ease: 'easeInOut'}}
         className="h-full bg-gradient-to-br from-blue-800 to-indigo-500 rounded-2xl"
       />
     </div>
@@ -78,7 +76,7 @@ const setFormSteps = ({fullName, phone}) => ([
       },
       {
         value: 'plata',
-        label: 'Onzas o piezas de plata',
+        label: 'Onzas o artículos de plata',
       },
     ],
     cols: 1,
@@ -264,7 +262,7 @@ export default function Survey({lead, utm}) {
     if (showIntro) {
       const timer = setTimeout(() => {
         setShowIntro(false);
-      }, 3000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
