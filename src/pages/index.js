@@ -172,7 +172,7 @@ export default function Index() {
         ) 1`,
         borderImageSlice: 1,
       }}>
-        <div className="container grid lg:grid-cols-2 gap-12 py-20">
+        <div id="polanco" className="container grid lg:grid-cols-2 gap-12 py-20">
           <div className="relative flex flex-col md:flex-row gap-16 items-stretch">
             <div className="w-full md:w-1/3">
               <h2 className="font-semibold">Plaza Polanco</h2>
@@ -201,7 +201,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="relative flex flex-col md:flex-row gap-16 items-stretch">
+          <div id="cuspide" className="relative flex flex-col md:flex-row gap-16 items-stretch">
             <div className="w-full md:w-1/3">
               <h2 className="font-semibold">La Cúspide Sky Mall</h2>
               <p>
