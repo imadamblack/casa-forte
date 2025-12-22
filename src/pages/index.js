@@ -10,8 +10,15 @@ import Faqs from '../components/faqs';
 import scrollDepth from '../utils/scrollDepth';
 import { gtagSendEvent } from '../services/fbEvents';
 
-export default function Index() {
+export default function Index({sucursal}) {
   const [lastClick, setLastClick] = useState('');
+
+  const suc = sucursal === 'polanco'
+    ? 'Polanco'
+    : sucursal === 'cuspide'
+      ? 'La Cúspide' : 'CDMX'
+
+  const msg = `Hola! Me interesa vender unas piezas en su sucursal de ${suc}`
 
   useEffect(() => {
     scrollDepth({
@@ -55,7 +62,7 @@ export default function Index() {
           <p className="ft-3 mt-16 md:text-white invert" dangerouslySetInnerHTML={{__html: hero.banner.description}}/>
 
           <div className="flex flex-col md:w-1/3 justify-start items-start mt-20 md:invert">
-            <a href={`https://wa.me/${info.whatsapp.value}`} className="relative button !w-full mb-4">
+            <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`} className="relative button !w-full mb-4">
               <span className="filter invert mr-4"><Image src="/whatsapp.svg" width={20} height={20}/></span>
               {hero.cta.main ?? 'Contáctanos'}
             </a>
@@ -363,7 +370,7 @@ export default function Index() {
         className='fixed inset-x-0 bottom-4 px-8 z-[9999] isolate'>
         <div className='flex justify-center lg:justify-end'>
           <a
-            href={`https://wa.me/${info.whatsapp.value}`}
+            href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
             onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
             target="_blank"
             className='ft-3 button hover:bg-brand-5 !mt-0 !py-6 !px-16 !rounded-full shadow-lg !tracking-normal'
@@ -376,4 +383,56 @@ export default function Index() {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  const { req, query } = ctx;
+  const cookiesHeader = req.headers.cookie || '';
+
+  const keys = ['utm', '_fbc', '_fbp', 'lead'];
+  const cookies = {};
+
+  for (const key of keys) {
+    const raw = cookiesHeader
+      .split('; ')
+      .find(c => c.startsWith(`${key}=`))
+      ?.split('=')[1];
+
+    if (!raw) continue;
+
+    try {
+      const clean = raw.startsWith('j%3A') ? raw.slice(4) : raw;
+      cookies[key] = JSON.parse(decodeURIComponent(clean));
+    } catch {
+      cookies[key] = decodeURIComponent(raw);
+    }
+  }
+
+  // --- Revisar params UTM del query ---
+  const utmFromQuery = {};
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
+    if (query[param]) utmFromQuery[param] = query[param];
+  });
+
+  // Si hay params en la URL, se usan; si no, cae en cookie
+  const utm =
+    Object.keys(utmFromQuery).length > 0
+      ? utmFromQuery
+      : cookies.utm ?? null;
+
+  const { lead } = cookies;
+  const sucursal = query.sucursal ?? '';
+
+  return {
+    props: {
+      lead: {
+        fullName: lead?.fullName ?? '',
+        phone: lead?.phone ?? '',
+        whatsapp: lead?.whatsapp ?? '',
+        sheetRow: lead?.sheetRow ?? '',
+      },
+      utm,
+      sucursal
+    },
+  };
 }
