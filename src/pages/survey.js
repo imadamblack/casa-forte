@@ -199,23 +199,23 @@ const setFormSteps = ({fullName, phone}) => ([
     ],
     cols: 1,
   },
-  // {
-  //   type: 'radio',
-  //   name: 'sucursal',
-  //   title: '¿Qué sucursal te queda mejor para traer tus piezas?',
-  //   inputOptions: {required: 'Selecciona una por favor'},
-  //   options: [
-  //     {
-  //       value: 'polanco',
-  //       label: 'Plaza Polanco',
-  //     },
-  //     {
-  //       value: 'cuspide',
-  //       label: 'La Cúspide Sky Mall',
-  //     },
-  //   ],
-  //   cols: 1,
-  // },
+  {
+    type: 'radio',
+    name: 'sucursal',
+    title: '¿Qué sucursal te queda mejor para traer tus piezas?',
+    inputOptions: {required: 'Selecciona una por favor'},
+    options: [
+      {
+        value: 'polanco',
+        label: 'Plaza Polanco, Polanco',
+      },
+      {
+        value: 'cuspide',
+        label: 'La Cúspide Sky Mall, Naucalpan',
+      },
+    ],
+    cols: 1,
+  },
   {
     type: 'opt-in',
     title: 'Ok, estamos listos para recibirte en nuestra boutique',
