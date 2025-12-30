@@ -62,12 +62,18 @@ export default function Index({sucursal}) {
           <p className="ft-3 mt-16 md:text-white invert" dangerouslySetInnerHTML={{__html: hero.banner.description}}/>
 
           <div className="flex flex-col md:w-1/3 justify-start items-start mt-20 md:invert">
-            <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`} className="relative button !w-full mb-4">
+            <a
+              href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
+              onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
+              target="_blank"
+              className="relative button !w-full mb-4"
+            >
               <span className="filter invert mr-4"><Image src="/whatsapp.svg" width={20} height={20}/></span>
               {hero.cta.main ?? 'Contáctanos'}
             </a>
             <a
               href={`tel:${info.whatsapp.value}`}
+              onClick={() => gtagSendEvent('AohFCN-_9NkbEP6klOBB')}
               target="_blank"
               className="button-secondary !w-full mb-4"
             >
