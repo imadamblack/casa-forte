@@ -122,51 +122,15 @@ export default function Index({sucursal}) {
             </div>
           </div>
           <div className="reading-container mt-20">
-            <Link href="/survey">
-              <a className="button mb-4">{'Valúa tus piezas'}</a>
-            </Link>
+            <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
+               onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
+               target="_blank"
+               className="button mb-4">
+              Contáctanos
+            </a>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
         </section>}
-
-      {/* BENEFICIOS */}
-      {/*<section id="beneficios">*/}
-      {/*  <Blockbuster*/}
-      {/*    background={`bg-[url('/landing/beneficios.jpg')]`}*/}
-      {/*    title={beneficios.banner.title}*/}
-      {/*    description={beneficios.banner.description}*/}
-      {/*  />*/}
-      {/*  <div className="container mb-20">*/}
-      {/*    <p className="reading-container ft-2 m-20" dangerouslySetInnerHTML={{__html: beneficios.content?.paragraph}}/>*/}
-      {/*    <div className="grid lg:grid-cols-3 gap-8 items-stretch">*/}
-      {/*      {beneficios.content.items.map((i, idx) =>*/}
-      {/*        <div*/}
-      {/*          id={`beneficio-${idx}`}*/}
-      {/*          className="relative flex flex-col gap-8 w-full bg-white rounded-2xl shadow-lg overflow-hidden">*/}
-
-      {/*          <div className="w-full aspect-[16/9]">*/}
-      {/*            <div className="relative w-full h-full">*/}
-      {/*              <Image src={`/landing/${i.img}`} layout="fill" objectFit="cover"/>*/}
-      {/*            </div>*/}
-      {/*          </div>*/}
-
-      {/*          <div className="p-20">*/}
-      {/*            <h3 className="ft-4 font-semibold tracking-wide flex-grow">{i.title}</h3>*/}
-      {/*            <p className="ft-1">{i.description}</p>*/}
-      {/*          </div>*/}
-
-      {/*        </div>,*/}
-      {/*      )}*/}
-      {/*    </div>*/}
-
-      {/*    <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">*/}
-      {/*      <Link href="#contact">*/}
-      {/*        <a onClick={() => goToContact('benefits')} className="button mb-4">{hero.cta.main ?? 'Contáctanos'}</a>*/}
-      {/*      </Link>*/}
-      {/*      <p className="-ft-1">{hero.cta.second}</p>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</section>*/}
 
       {/*UBICACION*/}
 
@@ -196,9 +160,12 @@ export default function Index({sucursal}) {
                 Ciudad de México, CDMX<br/>
               </p>
               <div className="mt-12">
-                <Link href="/survey">
-                  <a className="button mb-4">{'Valúa tus piezas'}</a>
-                </Link>
+                <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
+                   onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
+                   target="_blank"
+                   className="button mb-4">
+                  Contáctanos
+                </a>
                 <p className="-ft-1">{hero.cta.second}</p>
               </div>
             </div>
@@ -223,9 +190,12 @@ export default function Index({sucursal}) {
                 Ciudad de México, CDMX<br/>
               </p>
               <div className="mt-12">
-                <Link href="/survey">
-                  <a className="button mb-4">{'Valúa tus piezas'}</a>
-                </Link>
+                <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
+                   onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
+                   target="_blank"
+                   className="button mb-4">
+                  Contáctanos
+                </a>
                 <p className="-ft-1">{hero.cta.second}</p>
               </div>
             </div>
@@ -269,9 +239,12 @@ export default function Index({sucursal}) {
             )}
           </div>
           <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">
-            <Link href="/survey">
-              <a className="button mb-4">{'Valúa tus piezas'}</a>
-            </Link>
+            <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
+               onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
+               target="_blank"
+               className="button mb-4">
+              Contáctanos
+            </a>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
         </div>
@@ -297,9 +270,12 @@ export default function Index({sucursal}) {
             )}
           </div>
           <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">
-            <Link href="/survey">
-              <a className="button mb-4">{'Valúa tus piezas'}</a>
-            </Link>
+            <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
+               onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
+               target="_blank"
+               className="button mb-4">
+              Contáctanos
+            </a>
             <p className="-ft-1">{hero.cta.second}</p>
           </div>
         </div>
@@ -331,9 +307,12 @@ export default function Index({sucursal}) {
               )}
             </div>
             <div className="flex flex-col justify-start md:justify-center items-start md:items-center mt-20">
-              <Link href="/survey">
-                <a className="button mb-4">{'Valúa tus piezas'}</a>
-              </Link>
+              <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
+                 onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
+                 target="_blank"
+                 className="button mb-4">
+                Contáctanos
+              </a>
               <p className="-ft-1">{hero.cta.second}</p>
             </div>
           </div>
@@ -365,16 +344,19 @@ export default function Index({sucursal}) {
               <p className="ft-1 font-semibold text-neutral-900">{cta.description}</p>
               <p className="ft-1 text-neutral-900" dangerouslySetInnerHTML={{__html: cta.paragraph}}/>
             </div>
-            <Link href="/survey">
-              <a className="button mb-4">{'Valúa tus piezas'}</a>
-            </Link>
+            <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
+               onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
+               target="_blank"
+               className="button mb-4">
+              Contáctanos
+            </a>
           </div>
         </div>
       </section>
 
       <div
-        className='fixed inset-x-0 bottom-4 px-8 z-[9999] isolate'>
-        <div className='flex justify-center lg:justify-end'>
+        className="fixed inset-x-0 bottom-4 px-8 z-[9999] isolate">
+        <div className="flex justify-center lg:justify-end">
           <a
             href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
             onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
