@@ -1,8 +1,8 @@
 export const content = {
   hero: {
     banner: {
-      title: 'Compra de oro y plata en CDMX: joyas, centenarios, monedas y otras piezas.',
-      description: 'Con discreción y pago inmediato<br/>No somos una casa de empeño.',
+      title: 'Compra de oro y plata en CDMX: joyas, centenarios, monedas y otras piezas',
+      description: 'Con discreción y pago inmediato<br/>No somos una casa de empeño',
     },
     content: {
       paragraph: 'Valoramos cada pieza y te pagamos en el momento. <br/><br/>Sin estrés. Sin demoras. Solo un intercambio justo. <br/><br/>Convierte tus piezas en nuevas oportunidades.',

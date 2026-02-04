@@ -56,10 +56,12 @@ export default function Index({sucursal}) {
 
         <div className="container min-h-[40rem] text-white w-full text-left z-20 py-20">
           <h1
-            className="md:w-2/3 relative ft-9 invert">
+            className="md:w-2/3 relative ft-9 invert mb-8">
             {hero.banner.title}
           </h1>
-          <p className="ft-3 mt-16 md:text-white invert" dangerouslySetInnerHTML={{__html: hero.banner.description}}/>
+          <p className="flex ft-1 md:text-white invert"><span className="material-icons text-yellow-500 invert mr-2">location_on</span>Plaza Polanco</p>
+          <p className="flex ft-1 md:text-white invert"><span className="material-icons text-yellow-500 invert mr-2">location_on</span>La Cúspide Sky Mall</p>
+          <p className="ft-3 mt-8 md:text-white invert" dangerouslySetInnerHTML={{__html: hero.banner.description}}/>
 
           <div className="flex flex-col md:w-1/3 justify-start items-start mt-20 md:invert">
             <a
