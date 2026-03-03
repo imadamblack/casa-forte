@@ -61,6 +61,7 @@ export default function Index({sucursal}) {
           </h1>
           <p className="flex ft-1 md:text-white invert"><span className="material-icons text-yellow-500 invert mr-2">location_on</span>Plaza Polanco</p>
           <p className="flex ft-1 md:text-white invert"><span className="material-icons text-yellow-500 invert mr-2">location_on</span>La Cúspide Sky Mall</p>
+          <p className="flex ft-1 md:text-white invert"><span className="material-icons text-yellow-500 invert mr-2">location_on</span>Plaza Lindavista</p>
           <p className="ft-3 mt-8 md:text-white invert" dangerouslySetInnerHTML={{__html: hero.banner.description}}/>
 
           <div className="flex flex-col md:w-1/3 justify-start items-start mt-20 md:invert">
@@ -151,11 +152,11 @@ export default function Index({sucursal}) {
         ) 1`,
         borderImageSlice: 1,
       }}>
-        <div id="polanco" className="container grid lg:grid-cols-2 gap-12 py-20">
+        <div id="polanco" className="grid xl:grid-cols-3 gap-12 py-20 px-16">
           <div className="relative flex flex-col md:flex-row gap-16 items-stretch">
             <div className="w-full md:w-1/3">
-              <h2 className="font-semibold">Plaza Polanco</h2>
-              <p>
+              <h2 className="ft-3 font-semibold">Plaza Polanco</h2>
+              <p className="-ft-1">
                 Av. Jaime Balmes 11 LOCAL 111<br/>
                 Polanco, Polanco I Secc,<br/>
                 Miguel Hidalgo, 11510<br/>
@@ -185,8 +186,8 @@ export default function Index({sucursal}) {
 
           <div id="cuspide" className="relative flex flex-col md:flex-row gap-16 items-stretch">
             <div className="w-full md:w-1/3">
-              <h2 className="font-semibold">La Cúspide Sky Mall</h2>
-              <p>
+              <h2 className="ft-3 font-semibold">La Cúspide Sky Mall</h2>
+              <p className="-ft-1">
                 Avenida Lomas Verdes 1200<br/>
                 Naucalpan de Juárez, 53124<br/>
                 Ciudad de México, CDMX<br/>
@@ -212,6 +213,37 @@ export default function Index({sucursal}) {
               />
             </div>
           </div>
+
+          <div id="lindavista" className="relative flex flex-col md:flex-row gap-16 items-stretch">
+            <div className="w-full md:w-1/3">
+              <h2 className="ft-3 font-semibold">Plaza Lindavista</h2>
+              <p className="-ft-1">
+                Av  Monte Video #363 Local 231<br/>
+                Lindavista, 07300<br/>
+                Gustavo A. Madero, CDMX<br/>
+              </p>
+              <div className="mt-12">
+                <a href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(msg)}`}
+                   onClick={() => gtagSendEvent('2VgICMS2oL4bEP6klOBB')}
+                   target="_blank"
+                   className="button mb-4">
+                  Contáctanos
+                </a>
+                <p className="-ft-1">{hero.cta.second}</p>
+              </div>
+            </div>
+            <div className="relative w-full md:w-2/3 aspect-square md:aspect-video">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.142366710312!2d-99.1335519!3d19.4925098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9d2a4430c35%3A0x7f0ab3c1275546f6!2sCasa%20Forte%20Lindavista!5e0!3m2!1ses!2smx!4v1772569742114!5m2!1ses!2smx"
+                style={{position: 'absolute', inset: 0, border: 0, width: '100%', height: '100%'}}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación: Av. Jaime Balmes 11, Polanco, CDMX"
+              />
+            </div>
+          </div>
+
         </div>
       </section>
 
