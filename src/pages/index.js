@@ -13,10 +13,15 @@ import { gtagSendEvent } from '../services/fbEvents';
 export default function Index({sucursal}) {
   const [lastClick, setLastClick] = useState('');
 
-  const suc = sucursal === 'polanco'
-    ? 'Polanco'
-    : sucursal === 'cuspide'
-      ? 'La Cúspide' : 'CDMX'
+  const suc = () => {
+    switch (sucursal) {
+      case 'polanco': return 'Polanco';
+      case 'cuspide': return 'La Cúspide';
+      case 'lindavista': return 'Lindavista';
+      default: return 'CDMX';
+    }
+  };
+
 
   const msg = `Hola! Me interesa vender unas piezas en su sucursal de ${suc}`
 
