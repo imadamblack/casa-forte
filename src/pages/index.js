@@ -15,15 +15,14 @@ export default function Index({sucursal}) {
 
   const suc = () => {
     switch (sucursal) {
-      case 'polanco': return 'Polanco';
-      case 'cuspide': return 'La Cúspide';
-      case 'lindavista': return 'Lindavista';
+      case 'polanco': return 'su sucursal de Polanco';
+      case 'cuspide': return 'su sucursal de La Cúspide';
+      case 'lindavista': return 'su sucursal de Lindavista';
       default: return 'CDMX';
     }
   };
 
-
-  const msg = `Hola! Me interesa vender unas piezas en su sucursal de ${suc}`
+  const msg = `Hola! Me interesa vender unas piezas en ${suc()}`
 
   useEffect(() => {
     scrollDepth({
