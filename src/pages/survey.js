@@ -213,6 +213,10 @@ const setFormSteps = ({fullName, phone}) => ([
         value: 'cuspide',
         label: 'La Cúspide Sky Mall, Naucalpan',
       },
+      {
+        value: 'lindavista',
+        label: 'Plaza Lindavista',
+      },
     ],
     cols: 1,
   },
